@@ -183,7 +183,7 @@
                 return;
             }
 
-            // Ganti nomor ini dengan nomor WA kasir Kedai Cinta (Gunakan format 62 tanpa +)
+            // nomor WA kasir Kedai Cinta (Gunakan format 62 tanpa +)
             const nomorKasir = "6288221638575"; 
 
             // Susun format pesan
@@ -198,17 +198,11 @@
             teksPesan += `*No. WA Pelanggan:* ${waMember}%0A%0A`;
             teksPesan += `Tolong segera diproses ya kak. Terima kasih! 🙏`;
 
-            // Hapus data keranjang karena sudah di-checkout
+	// Hapus data keranjang karena sudah di-checkout
             localStorage.removeItem('kedaiCintaCart');
 
-            // Buka tab baru ke WhatsApp
-            window.open(`https://wa.me/${nomorKasir}?text=${teksPesan}`, '_blank');
-            
-            // Kembalikan pelanggan ke halaman utama setelah 2 detik
-            setTimeout(() => {
-                window.location.href = "index.html";
-            }, 2000);
+            // Buka WhatsApp langsung di halaman yang sama (Lebih stabil)
+            window.location.href = `https://wa.me/${nomorKasir}?text=${teksPesan}`;
         }
-    </script>
-</body>
+    </script></body>
 </html>
