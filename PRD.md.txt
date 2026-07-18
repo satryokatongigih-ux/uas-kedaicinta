@@ -1,0 +1,20 @@
+Product Requirements Document (PRD) - Kedai Cinta
+
+1. Pendahuluan
+Kedai Cinta adalah sebuah inovasi aplikasi web bisnis kuliner yang mengusung konsep "Vibes Sultan, Harga Teman". Proyek ini merupakan pengembangan dari landing page menjadi sebuah web app interaktif yang dilengkapi dengan fitur Self-Service Ordering.
+
+ 2. Target Segmen Pelanggan
+- Mahasiswa yang mencari tempat makan atau nugas dengan harga terjangkau.
+- Pekerja freelance yang membutuhkan tempat nyaman.
+- Solo Diner (pelanggan yang datang sendirian) yang menginginkan privasi dan kemudahan tanpa harus antre di kasir.
+
+3. Masalah & Solusi (Pain Points & Solutions)
+- Masalah: Pelanggan (terutama *solo diner*) sering merasa canggung atau membuang waktu saat harus antre di kasir untuk memesan dan membayar.
+- Solusi: Menyediakan fitur *Smart Ordering* dan *Cart System* di mana pelanggan bisa memilih menu, memasukkan nomor meja (Area A & B), dan mengirim pesanan langsung ke WhatsApp kasir dari tempat duduk mereka.
+
+4. Fitur Utama
+1. Interactive Menu: Menampilkan katalog produk (Makanan & Minuman) dengan tombol penambahan (+) dan pengurangan (-) kuantitas.
+2. Floating Cart: Sistem keranjang belanja yang menghitung sub-total dan jumlah item secara *real-time*.
+3. Table Allocation: Sistem pemilihan 20 nomor meja (A1-A10 dan B1-B10) pada halaman checkout.
+4. Loyalty Member Validation: Input nomor WhatsApp pelanggan untuk melacak status member dan mengkalkulasi diskon pesanan.
+5. WhatsApp Checkout Integration: Mengubah ringkasan pesanan menjadi format teks rapi yang otomatis terkirim ke WhatsApp Kasir.
