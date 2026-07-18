@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Kedai Cinta</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Tambahan CSS khusus untuk halaman Checkout */
+        .checkout-container {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            border: 1px solid #D4AF37;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        .btn-back {
+            display: inline-block;
+            color: #aaaaaa;
+            text-decoration: none;
+            margin-bottom: 20px;
+            border: 1px solid #555;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .checkout-title {
+            color: #D4AF37;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        #order-summary {
+            margin-bottom: 20px;
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #333;
+            padding-bottom: 5px;
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            color: #D4AF37;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ccc;
+            font-size: 14px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background-color: #121212;
+            color: #fff;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #D4AF37;
+        }
+        .btn-wa {
+            background-color: #25D366; /* Warna Hijau WhatsApp */
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .btn-wa:hover {
+            background-color: #1ebe5d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-container">
+        <a href="index.html" class="btn-back">← Kembali ke Menu</a>
+        
+        <h2 class="checkout-title">🧾 Ringkasan Pesanan</h2>
+        
+        <!-- Daftar pesanan akan dimunculkan di sini oleh JavaScript -->
+        <div id="order-summary"></div>
+        
+        <div class="total-row">
+            <span>Total Bayar:</span>
+            <span id="grand-total">Rp 0</span>
+        </div>
+
+        <hr style="border-color: #333; margin: 20px 0;">
+
+        <!-- Form Data Pelanggan -->
+        <div class="form-group">
+            <label for="meja">Pilih Nomor Meja:</label>
+            <select id="meja" required>
+                <option value="" disabled selected>-- Pilih Meja --</option>
+                <optgroup label="Area A">
+                    <option value="A1">Meja A1</option>
+                    <option value="A2">Meja A2</option>
+                    <option value="A3">Meja A3</option>
+                    <option value="A4">Meja A4</option>
+                    <option value="A5">Meja A5</option>
+                </optgroup>
+                <optgroup label="Area B">
+                    <option value="B1">Meja B1</option>
+                    <option value="B2">Meja B2</option>
+                    <option value="B3">Meja B3</option>
+                    <option value="B4">Meja B4</option>
+                    <option value="B5">Meja B5</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="wa-member">Nomor WA (Untuk Validasi Member / Diskon):</label>
+            <input type="number" id="wa-member" placeholder="Contoh: 08123456789" required>
+        </div>
+
+        <button class="btn-wa" onclick="kirimKeWhatsApp()">Kirim Pesanan via WhatsApp</button>
+    </div>
+
+    <script>
+        // Mengambil data keranjang dari penyimpanan browser
+        let cart = JSON.parse(localStorage.getItem('kedaiCintaCart')) || [];
+        let grandTotal = 0;
+
+        // Menampilkan ringkasan pesanan saat halaman dimuat
+        window.onload = function() {
+            const summaryContainer = document.getElementById('order-summary');
+            const grandTotalEl = document.getElementById('grand-total');
+
+            if (cart.length === 0) {
+                summaryContainer.innerHTML = '<p style="text-align:center; color:#888;">Keranjangmu masih kosong.</p>';
+                document.querySelector('.btn-wa').disabled = true;
+                return;
+            }
+
+            cart.forEach(item => {
+                let itemTotal = item.price * item.quantity;
+                grandTotal += itemTotal;
+
+                summaryContainer.innerHTML += `
+                    <div class="summary-item">
+                        <span>${item.quantity}x ${item.name}</span>
+                        <span>Rp ${itemTotal.toLocaleString('id-ID')}</span>
+                    </div>
+                `;
+            });
+
+            grandTotalEl.innerText = `Rp ${grandTotal.toLocaleString('id-ID')}`;
+        }
+
+        // Fungsi untuk menyusun teks dan memanggil API WhatsApp
+        function kirimKeWhatsApp() {
+            const meja = document.getElementById('meja').value;
+            const waMember = document.getElementById('wa-member').value;
+
+            // Validasi input
+            if (!meja) {
+                alert("Mohon pilih nomor meja terlebih dahulu!");
+                return;
+            }
+            if (!waMember) {
+                alert("Mohon isi nomor WhatsApp Anda!");
+                return;
+            }
+
+            // Ganti nomor ini dengan nomor WA kasir Kedai Cinta (Gunakan format 62 tanpa +)
+            const nomorKasir = "6288221638575"; 
+
+            // Susun format pesan
+            let teksPesan = `Halo *Kedai Cinta*, saya ingin memesan makanan/minuman dengan rincian berikut:%0A%0A`;
+            
+            cart.forEach(item => {
+                teksPesan += `- ${item.quantity}x ${item.name} (Rp ${(item.price * item.quantity).toLocaleString('id-ID')})%0A`;
+            });
+
+            teksPesan += `%0A*Total Bayar: Rp ${grandTotal.toLocaleString('id-ID')}*%0A`;
+            teksPesan += `*Nomor Meja:* ${meja}%0A`;
+            teksPesan += `*No. WA Pelanggan:* ${waMember}%0A%0A`;
+            teksPesan += `Tolong segera diproses ya kak. Terima kasih! 🙏`;
+
+            // Hapus data keranjang karena sudah di-checkout
+            localStorage.removeItem('kedaiCintaCart');
+
+            // Buka tab baru ke WhatsApp
+            window.open(`https://wa.me/${nomorKasir}?text=${teksPesan}`, '_blank');
+            
+            // Kembalikan pelanggan ke halaman utama setelah 2 detik
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

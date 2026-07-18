@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kedai Cinta - Vibes Sultan, Harga Teman</title>
+    <!-- Kita akan menghubungkan ini ke file CSS nanti -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar / Bagian Atas -->
+    <nav class="navbar">
+        <h1>Kedai Cinta 💛</h1>
+        <p class="tagline">Self-Service Ordering</p>
+    </nav>
+
+    <!-- Header / Banner Promosi -->
+    <header class="hero">
+        <h2>Vibes Sultan, Harga Teman</h2>
+        <p>Pilih menu favoritmu, tentukan mejamu, pesanan langsung kami antar!</p>
+    </header>
+
+    <!-- Area Daftar Menu -->
+    <main class="menu-container">
+        
+        <!-- KATEGORI MAKANAN -->
+        <h3 class="category-title">🍽️ Makanan Utama & Snack</h3>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Wagyu+Meltique" alt="Wagyu Meltique">
+                <h4>Student's Wagyu Meltique</h4>
+                <p class="price">Rp 35.000</p>
+                <button class="add-btn" onclick="addToCart('Student\'s Wagyu Meltique', 35000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Katsu+Curry" alt="Katsu Curry">
+                <h4>Katsu Curry Rice</h4>
+                <p class="price">Rp 22.000</p>
+                <button class="add-btn" onclick="addToCart('Katsu Curry Rice', 22000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Spaghetti+Truffle" alt="Spaghetti Truffle">
+                <h4>Spaghetti Truffle (Budget)</h4>
+                <p class="price">Rp 20.000</p>
+                <button class="add-btn" onclick="addToCart('Spaghetti Truffle', 20000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Nasi+Goreng" alt="Nasi Goreng">
+                <h4>Nasi Goreng Cinta</h4>
+                <p class="price">Rp 18.000</p>
+                <button class="add-btn" onclick="addToCart('Nasi Goreng Cinta', 18000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Mie+Sultan" alt="Mie Sultan">
+                <h4>Mie Goreng Sultan</h4>
+                <p class="price">Rp 18.000</p>
+                <button class="add-btn" onclick="addToCart('Mie Goreng Sultan', 18000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Cordon+Bleu" alt="Cordon Bleu">
+                <h4>Chicken Cordon Bleu</h4>
+                <p class="price">Rp 25.000</p>
+                <button class="add-btn" onclick="addToCart('Chicken Cordon Bleu', 25000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Geprek+Mozza" alt="Geprek Mozza">
+                <h4>Ayam Geprek Mozzarella</h4>
+                <p class="price">Rp 20.000</p>
+                <button class="add-btn" onclick="addToCart('Ayam Geprek Mozzarella', 20000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Beef+Burger" alt="Beef Burger">
+                <h4>Beef Burger & Chips</h4>
+                <p class="price">Rp 24.000</p>
+                <button class="add-btn" onclick="addToCart('Beef Burger & Chips', 24000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Dimsum+Mentai" alt="Dimsum Mentai">
+                <h4>Dimsum Mentai (Isi 4)</h4>
+                <p class="price">Rp 15.000</p>
+                <button class="add-btn" onclick="addToCart('Dimsum Mentai', 15000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Snack+Platter" alt="Snack Platter">
+                <h4>Sausage & Fries Platter</h4>
+                <p class="price">Rp 15.000</p>
+                <button class="add-btn" onclick="addToCart('Sausage & Fries Platter', 15000)">+ Tambah</button>
+            </div>
+        </div>
+
+        <!-- KATEGORI MINUMAN -->
+        <h3 class="category-title">🍹 Minuman Segar & Kopi</h3>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Kopi+Aren" alt="Kopi Aren">
+                <h4>Kopi Susu Aren</h4>
+                <p class="price">Rp 12.000</p>
+                <button class="add-btn" onclick="addToCart('Kopi Susu Aren', 12000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Cafe+Latte" alt="Cafe Latte">
+                <h4>Cafe Latte / Cappuccino</h4>
+                <p class="price">Rp 15.000</p>
+                <button class="add-btn" onclick="addToCart('Cafe Latte', 15000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Americano" alt="Americano">
+                <h4>Americano (Ice/Hot)</h4>
+                <p class="price">Rp 10.000</p>
+                <button class="add-btn" onclick="addToCart('Americano', 10000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Matcha+Latte" alt="Matcha Latte">
+                <h4>Matcha Latte</h4>
+                <p class="price">Rp 16.000</p>
+                <button class="add-btn" onclick="addToCart('Matcha Latte', 16000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Red+Velvet" alt="Red Velvet">
+                <h4>Red Velvet Latte</h4>
+                <p class="price">Rp 16.000</p>
+                <button class="add-btn" onclick="addToCart('Red Velvet Latte', 16000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Taro+Frappe" alt="Taro Frappe">
+                <h4>Taro Frappe</h4>
+                <p class="price">Rp 18.000</p>
+                <button class="add-btn" onclick="addToCart('Taro Frappe', 18000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Cokelat+Klasik" alt="Cokelat Klasik">
+                <h4>Cokelat Klasik</h4>
+                <p class="price">Rp 14.000</p>
+                <button class="add-btn" onclick="addToCart('Cokelat Klasik', 14000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Lychee+Tea" alt="Lychee Tea">
+                <h4>Lychee Tea (With Lychee)</h4>
+                <p class="price">Rp 12.000</p>
+                <button class="add-btn" onclick="addToCart('Lychee Tea', 12000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Lemon+Tea" alt="Lemon Tea">
+                <h4>Lemon Tea</h4>
+                <p class="price">Rp 10.000</p>
+                <button class="add-btn" onclick="addToCart('Lemon Tea', 10000)">+ Tambah</button>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/600x400/222222/D4AF37?text=Strawberry+Mojito" alt="Strawberry Mojito">
+                <h4>Strawberry Mojito</h4>
+                <p class="price">Rp 15.000</p>
+                <button class="add-btn" onclick="addToCart('Strawberry Mojito', 15000)">+ Tambah</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Cart (Keranjang Mengambang di Kanan Bawah) -->
+    <div class="floating-cart" id="cart-ui" onclick="goToCheckout()">
+        🛒 <span id="cart-count">0</span> Item | Rp <span id="cart-total">0</span>
+    </div>
+
+    <!-- Kita akan menghubungkan ini ke file JavaScript nanti -->
+    <script src="app.js"></script>
+</body>
+</html>

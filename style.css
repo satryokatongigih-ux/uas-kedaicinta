@@ -1,0 +1,134 @@
+/* Reset & Pengaturan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212; /* Latar belakang gelap */
+    color: #f5f5f5;
+    padding-bottom: 80px; /* Ruang kosong agar keranjang tidak menutupi menu paling bawah */
+}
+
+/* Navbar / Bagian Atas */
+.navbar {
+    background-color: #000000;
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 2px solid #D4AF37; /* Garis emas */
+}
+
+.navbar h1 {
+    color: #D4AF37;
+    font-size: 24px;
+}
+
+.tagline {
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+/* Banner Promosi */
+.hero {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+}
+
+.hero h2 {
+    color: #D4AF37;
+    margin-bottom: 10px;
+}
+
+/* Area Daftar Menu */
+.menu-container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.category-title {
+    margin: 30px 0 15px 0;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    color: #D4AF37;
+}
+
+/* Grid Layout untuk Kartu Menu */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Desain Kartu Menu */
+.menu-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, border-color 0.2s;
+    border: 1px solid #2a2a2a;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    border-color: #D4AF37; /* Pinggiran menyala saat disentuh mouse */
+}
+
+.menu-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.menu-card h4 {
+    margin: 15px 10px 5px;
+    font-size: 16px;
+}
+
+.menu-card .price {
+    color: #D4AF37;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Tombol Tambah ke Keranjang */
+.add-btn {
+    background-color: #D4AF37;
+    color: #000;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-btn:hover {
+    background-color: #b5952f;
+}
+
+/* Keranjang Belanja Mengambang */
+.floating-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #D4AF37;
+    color: #000;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    cursor: pointer;
+    z-index: 1000;
+    display: none; /* Sengaja disembunyikan, nanti dimunculkan oleh JavaScript jika ada pesanan */
+}
+
+.floating-cart:hover {
+    background-color: #b5952f;
+}
